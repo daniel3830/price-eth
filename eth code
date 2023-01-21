@@ -1,0 +1,13 @@
+const axios = require('axios');
+
+async function trackEthPrice() {
+    try {
+        const response = await axios.get('https://api.coindesk.com/v1/bpi/currentprice/ETH.json');
+        const price = response.data.bpi.USD.rate_float;
+        console.log(`The current price of ETH is $${price}`);
+    } catch (error) {
+        console.log(error);
+    }
+}
+
+trackEthPrice();
